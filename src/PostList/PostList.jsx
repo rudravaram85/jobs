@@ -3,7 +3,7 @@ import useFetchHook from "../api/useFetchHook";
 import PostCard from "./PostCard";
 import PostDialog from "./PostDialog";
 import { Button } from "@blueprintjs/core";
-
+import data from './Data';
 const initialState = {
   isOpen: false,
   dialogTitle: "",
@@ -44,19 +44,14 @@ const PostList = props => {
     dispatch({ type: "CLOSE_DIALOG" });
   };
 
+  console.log(data);
+
   return (
     <div>
-      <Button
-        text="Create new post"
-        icon="add"
-        intent="primary"
-        onClick={handleCreate}
-      />
+     
 
       <div style={{ padding: "16px" }}>
-        {posts.data.map(post => (
-          <PostCard key={post.id} post={post} dispatch={dispatch} />
-        ))}
+          <PostCard  dispatch={dispatch} />
       </div>
 
       <PostDialog {...dialogState} handleClose={handleClose} />
